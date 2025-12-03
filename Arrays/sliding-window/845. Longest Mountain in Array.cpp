@@ -1,6 +1,7 @@
 // 845. Longest Mountain in Array
 
- int longestMountain(vector<int>& arr) {
+// just go to each element and expand to it's right and left nd keep checking for the largest window
+int longestMountain(vector<int>& arr) {
     int n = arr.size();
     if (n < 3)
         return 0;
