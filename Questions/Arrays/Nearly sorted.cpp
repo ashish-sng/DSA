@@ -21,5 +21,25 @@ class Solution {
     }
 };
 
-// Optimal Solution - O(n * logk)
+// Optimal Solution using heap - O(n * logk)
+class Solution {
+  public:
+    void nearlySorted(vector<int>& arr, int k) {
+        // code here
+        int n = arr.size();
+        priority_queue<int, vector<int>, greater<int>> pq;
+        int j = 0;
+        for(int i = 0;i < n;i++){
+            pq.push(arr[i]);
+            while(!pq.empty() && pq.size() > k){
+                arr[j++] = pq.top();
+                pq.pop();
+            }
+        }
+        while(!pq.empty() && j < n){
+            arr[j++] = pq.top();
+            pq.pop();
+        }
+    }
+};
 
